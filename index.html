@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stellar Studio — Creative Portfolio</title>
+  <meta name="description" content="Stellar Studio — a playful, interactive portfolio demo with animations, dark mode, modal details, filtering and form validation." />
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>SS</div>
+        <div>
+          <div style="font-weight:700">Stellar Studio</div>
+          <div class="small">Playful interactive demo</div>
+        </div>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="controls">
+        <div class="toggle" id="themeToggle" role="button" tabindex="0" aria-pressed="false">🌙 <span class="small">Dark</span></div>
+        <div class="pill" id="openIntro">Quick Tour</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Designs & Micro-interactions that feel alive</h1>
+        <p class="lead">A single-file, interactive portfolio demo showcasing filtering, modals, validation and theme switching — copy it, edit it, and make it yours.</p>
+        <div class="stats">
+          <div class="stat"><b>12</b><span class="muted">Completed Projects</span></div>
+          <div class="stat"><b>4.9</b><span class="muted">Avg. Client Rating</span></div>
+          <div class="stat"><b>5</b><span class="muted">Years Experience</span></div>
+        </div>
+
+        <div class="projects" id="projects">
+          <div class="toolbar" role="toolbar" aria-label="Project filters">
+            <div class="pill active" data-filter="*">All</div>
+            <div class="pill" data-filter="branding">Branding</div>
+            <div class="pill" data-filter="web">Web</div>
+            <div class="pill" data-filter="mobile">Mobile</div>
+            <div class="pill" data-filter="3d">3D</div>
+          </div>
+
+          <div class="grid" id="grid">
+            <!-- project cards inserted by JS -->
+          </div>
+        </div>
+      </div>
+
+      <aside class="card aside">
+        <div class="profile">
+          <div class="avatar">RR</div>
+          <div>
+            <div style="font-weight:700">Rakshit</div>
+            <div class="small">Creative Developer</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="small">A playful portfolio built as a demo. Try filtering, open a project, switch theme, or send a quick message below.</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <button class="cta" id="hireBtn">Hire me</button>
+        </div>
+
+        <div style="margin-top:16px">
+          <div style="font-weight:700">Contact</div>
+          <div class="small">hello@stellar.example</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:20px" class="card">
+      <h2 style="margin-top:0">About Stellar Studio</h2>
+      <p class="muted">This demo emphasizes micro-interactions, accessibility and a small toolkit you can expand. It purposely avoids external libraries so you can copy-paste and learn easily.</p>
+
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <div style="font-weight:700">What you'll find</div>
+          <ul class="small muted">
+            <li>Filtering & active state management</li>
+            <li>Modal windows with focus-trap</li>
+            <li>Theme switching persisted to localStorage</li>
+            <li>Client-side form validation + success state</li>
+          </ul>
+        </div>
+        <div style="min-width:240px">
+          <div style="font-weight:700">Try these</div>
+          <div class="small muted">Use the Quick Tour button, then filter by type and open a project. Submit the contact form to see the validation friendly messages.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px">
+      <h3 style="margin-top:0">Get in touch</h3>
+      <form id="contactForm" novalidate>
+        <input type="text" id="name" placeholder="Your name" required minlength="2" />
+        <input type="email" id="email" placeholder="Email" required />
+        <textarea id="message" rows="4" placeholder="Message (10+ chars)" required minlength="10"></textarea>
+        <button type="submit">Send message</button>
+        <div id="formMsg" class="small muted" style="margin-top:6px"></div>
+      </form>
+    </section>
+
+    <footer class="card" style="margin-top:18px">
+      Built with ❤️ — Stellar Studio demo • multi-file version • accessible interactions
+    </footer>
+  </div>
+
+  <!-- modal -->
+  <div class="modal-back" id="modalBack" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" style="float:right;border:0;background:transparent;color:var(--muted);cursor:pointer">✕</button>
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDesc" class="muted"></p>
+      <div id="modalContent" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <!-- floating decorative shapes -->
+  <div class="float-shape" style="width:220px;height:220px;left:-40px;top:120px;background:linear-gradient(180deg,var(--accent),transparent);"></div>
+  <div class="float-shape" style="width:160px;height:160px;right:-30px;top:260px;background:linear-gradient(180deg,var(--accent-2),transparent);"></div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
